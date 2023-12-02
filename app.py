@@ -6,13 +6,12 @@ from pymongo import MongoClient
 app=Flask(__name__)
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
+
 MONGODB_URI = os.environ.get("MONGODB_URI")
 DB_NAME =  os.environ.get("DB_NAME")
 client = MongoClient(MONGODB_URI)
 db=client[DB_NAME]
-# mongo_string='mongodb://diskarmn:Diska123@ac-sjiapka-shard-00-00.3lnlkgx.mongodb.net:27017,ac-sjiapka-shard-00-01.3lnlkgx.mongodb.net:27017,ac-sjiapka-shard-00-02.3lnlkgx.mongodb.net:27017/?ssl=true&replicaSet=atlas-vnije0-shard-0&authSource=admin&retryWrites=true&w=majority'
-# client=MongoClient(mongo_string)
-# db=client.tehdiska
+
 
 @app.route('/',methods=['GET'])
 def home():
